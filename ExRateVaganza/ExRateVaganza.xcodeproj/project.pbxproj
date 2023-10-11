@@ -12,6 +12,18 @@
 		13AA92BA2AD6A64A00627CB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92B92AD6A64A00627CB3 /* ViewController.swift */; };
 		13AA92BF2AD6A64B00627CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AA92BE2AD6A64B00627CB3 /* Assets.xcassets */; };
 		13AA92C22AD6A64B00627CB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AA92C02AD6A64B00627CB3 /* LaunchScreen.storyboard */; };
+		13AA92CF2AD6AAD400627CB3 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92CE2AD6AAD400627CB3 /* AlertManager.swift */; };
+		13AA92D22AD6AAE900627CB3 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92D12AD6AAE900627CB3 /* LoadingManager.swift */; };
+		13AA92D62AD6AAF000627CB3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92D42AD6AAF000627CB3 /* NetworkManager.swift */; };
+		13AA92D72AD6AAF000627CB3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92D52AD6AAF000627CB3 /* NetworkError.swift */; };
+		13AA92D92AD6B25300627CB3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13AA92D82AD6B25300627CB3 /* Colors.xcassets */; };
+		13AA92DF2AD6B3CB00627CB3 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92DE2AD6B3CB00627CB3 /* UIApplication+Extensions.swift */; };
+		13AA92E12AD6B3FD00627CB3 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92E02AD6B3FD00627CB3 /* UIView+Extensions.swift */; };
+		13AA92E32AD6B9FD00627CB3 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92E22AD6B9FD00627CB3 /* RequestMethod.swift */; };
+		13AA92E72AD6BA1D00627CB3 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92E62AD6BA1D00627CB3 /* RequestModel.swift */; };
+		13AA92EA2AD6BA3D00627CB3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92E92AD6BA3D00627CB3 /* Constant.swift */; };
+		13AA92EC2AD6BA4B00627CB3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92EB2AD6BA4B00627CB3 /* API.swift */; };
+		13AA92EE2AD6BAE400627CB3 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AA92ED2AD6BAE400627CB3 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +34,18 @@
 		13AA92BE2AD6A64B00627CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13AA92C12AD6A64B00627CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13AA92C32AD6A64B00627CB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13AA92CE2AD6AAD400627CB3 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		13AA92D12AD6AAE900627CB3 /* LoadingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
+		13AA92D42AD6AAF000627CB3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		13AA92D52AD6AAF000627CB3 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		13AA92D82AD6B25300627CB3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		13AA92DE2AD6B3CB00627CB3 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		13AA92E02AD6B3FD00627CB3 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		13AA92E22AD6B9FD00627CB3 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		13AA92E62AD6BA1D00627CB3 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
+		13AA92E92AD6BA3D00627CB3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		13AA92EB2AD6BA4B00627CB3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		13AA92ED2AD6BAE400627CB3 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +79,11 @@
 			isa = PBXGroup;
 			children = (
 				13AA92C92AD6A89300627CB3 /* App */,
+				13AA92CC2AD6AABD00627CB3 /* Managers */,
+				13AA92E42AD6BA0B00627CB3 /* Models */,
 				13AA92CA2AD6A95700627CB3 /* Modules */,
 				13AA92CB2AD6A96600627CB3 /* Resources */,
+				13AA92DC2AD6B3AF00627CB3 /* Utilities */,
 			);
 			path = ExRateVaganza;
 			sourceTree = "<group>";
@@ -84,8 +111,89 @@
 			isa = PBXGroup;
 			children = (
 				13AA92BE2AD6A64B00627CB3 /* Assets.xcassets */,
+				13AA92D82AD6B25300627CB3 /* Colors.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		13AA92CC2AD6AABD00627CB3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92CD2AD6AAD400627CB3 /* AlertManager */,
+				13AA92D02AD6AAE900627CB3 /* LoadingManager */,
+				13AA92D32AD6AAF000627CB3 /* NetworkManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		13AA92CD2AD6AAD400627CB3 /* AlertManager */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92CE2AD6AAD400627CB3 /* AlertManager.swift */,
+			);
+			path = AlertManager;
+			sourceTree = "<group>";
+		};
+		13AA92D02AD6AAE900627CB3 /* LoadingManager */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92D12AD6AAE900627CB3 /* LoadingManager.swift */,
+			);
+			path = LoadingManager;
+			sourceTree = "<group>";
+		};
+		13AA92D32AD6AAF000627CB3 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92D52AD6AAF000627CB3 /* NetworkError.swift */,
+				13AA92D42AD6AAF000627CB3 /* NetworkManager.swift */,
+				13AA92E22AD6B9FD00627CB3 /* RequestMethod.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		13AA92DC2AD6B3AF00627CB3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92E82AD6BA3200627CB3 /* Constants */,
+				13AA92DD2AD6B3B200627CB3 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		13AA92DD2AD6B3B200627CB3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92ED2AD6BAE400627CB3 /* String+Extensions.swift */,
+				13AA92DE2AD6B3CB00627CB3 /* UIApplication+Extensions.swift */,
+				13AA92E02AD6B3FD00627CB3 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		13AA92E42AD6BA0B00627CB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92E52AD6BA0F00627CB3 /* Request */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		13AA92E52AD6BA0F00627CB3 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92E62AD6BA1D00627CB3 /* RequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		13AA92E82AD6BA3200627CB3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				13AA92EB2AD6BA4B00627CB3 /* API.swift */,
+				13AA92E92AD6BA3D00627CB3 /* Constant.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13AA92D92AD6B25300627CB3 /* Colors.xcassets in Resources */,
 				13AA92C22AD6A64B00627CB3 /* LaunchScreen.storyboard in Resources */,
 				13AA92BF2AD6A64B00627CB3 /* Assets.xcassets in Resources */,
 			);
@@ -158,9 +267,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13AA92D62AD6AAF000627CB3 /* NetworkManager.swift in Sources */,
+				13AA92D72AD6AAF000627CB3 /* NetworkError.swift in Sources */,
+				13AA92D22AD6AAE900627CB3 /* LoadingManager.swift in Sources */,
+				13AA92E12AD6B3FD00627CB3 /* UIView+Extensions.swift in Sources */,
+				13AA92CF2AD6AAD400627CB3 /* AlertManager.swift in Sources */,
 				13AA92BA2AD6A64A00627CB3 /* ViewController.swift in Sources */,
 				13AA92B62AD6A64A00627CB3 /* AppDelegate.swift in Sources */,
+				13AA92E72AD6BA1D00627CB3 /* RequestModel.swift in Sources */,
+				13AA92EE2AD6BAE400627CB3 /* String+Extensions.swift in Sources */,
+				13AA92EC2AD6BA4B00627CB3 /* API.swift in Sources */,
+				13AA92DF2AD6B3CB00627CB3 /* UIApplication+Extensions.swift in Sources */,
+				13AA92E32AD6B9FD00627CB3 /* RequestMethod.swift in Sources */,
 				13AA92B82AD6A64A00627CB3 /* SceneDelegate.swift in Sources */,
+				13AA92EA2AD6BA3D00627CB3 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
