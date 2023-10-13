@@ -296,9 +296,9 @@
 		13AA92FC2AD7401900627CB3 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				13AA92FF2AD7D41800627CB3 /* GetAllPairsResponseModel.swift */,
 				13AA93012AD7D44200627CB3 /* Pair.swift */,
 				13AA92FD2AD7402200627CB3 /* ResponseModel.swift */,
-				13AA92FF2AD7D41800627CB3 /* GetAllPairsResponseModel.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -324,8 +324,8 @@
 			isa = PBXGroup;
 			children = (
 				13C7F5AD2AD89AB200B908BE /* HomePairCollectionViewCell.swift */,
-				13C7F5AF2AD89ACD00B908BE /* HomePairCollectionViewCellProvider.swift */,
 				13C7F5C22AD8A70500B908BE /* HomePairCollectionViewCellDTO.swift */,
+				13C7F5AF2AD89ACD00B908BE /* HomePairCollectionViewCellProvider.swift */,
 			);
 			path = HomePairCollectionViewCell;
 			sourceTree = "<group>";
@@ -334,8 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				13C7F5B52AD89FF000B908BE /* HomeFavoriteCollectionViewCell.swift */,
-				13C7F5B72AD8A03500B908BE /* HomeFavoriteCollectionViewCellProvider.swift */,
 				13C7F5C42AD8A72900B908BE /* HomeFavoriteCollectionViewCellDTO.swift */,
+				13C7F5B72AD8A03500B908BE /* HomeFavoriteCollectionViewCellProvider.swift */,
 			);
 			path = HomeFavoriteCollectionViewCell;
 			sourceTree = "<group>";
@@ -352,8 +352,8 @@
 		13C7F5BD2AD8A4EF00B908BE /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				13C7F5BE2AD8A4FC00B908BE /* Section.swift */,
 				13C7F5D02AD966FE00B908BE /* Item.swift */,
+				13C7F5BE2AD8A4FC00B908BE /* Section.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
