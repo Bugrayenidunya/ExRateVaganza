@@ -29,17 +29,12 @@ final class NetworkManager: Networking {
     ///   - request:  Any model that confirms `RequestModel`
     ///   - completion: Escaping closure
     func request<T: Codable>(request: RequestModel, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        LoadingManager.shared.show()
-        
         guard let generatedRequest = request.generateRequest() else {
-            LoadingManager.shared.hide()
             completion(.failure(.badRequest))
             return
         }
         
         let task = session.dataTask(with: generatedRequest) { data, response, error in
-            LoadingManager.shared.hide()
-            
             if error != nil || data == nil { completion(.failure(.unknownError)) }
             
             if let apiEror = self.returnResponseErorIfNeeded(response: response) {
