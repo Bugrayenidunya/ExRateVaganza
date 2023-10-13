@@ -9,4 +9,8 @@ import Foundation
 
 extension String {
     static let empty = ""
+    
+    var formattedPairNormalized: String {
+        self.replacingOccurrences(of: "_", with: "/")
+    }
 }
