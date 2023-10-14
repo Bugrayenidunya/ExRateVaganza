@@ -8,9 +8,11 @@
 import Foundation
 
 protocol PairFetchable {
-    typealias ResponseHandler = (Result<GetAllPairsResponseModel, NetworkError>) -> Void
+    typealias PairsResponseHandler = (Result<GetAllPairsResponseModel, NetworkError>) -> Void
+    typealias KlineDataResponseHandler = (Result<GetKlineDataResponseModel, NetworkError>) -> Void
     
-    func fetchAllPairs(request: RequestModel, completion: @escaping ResponseHandler)
+    func fetchAllPairs(request: RequestModel, completion: @escaping PairsResponseHandler)
+    func fetchKlineData(request: RequestModel, completion: @escaping KlineDataResponseHandler)
 }
 
 final class PairAPI: PairFetchable {
@@ -23,7 +25,11 @@ final class PairAPI: PairFetchable {
     }
     
     // MARK: Functions
-    func fetchAllPairs(request: RequestModel, completion: @escaping ResponseHandler) {
+    func fetchAllPairs(request: RequestModel, completion: @escaping PairsResponseHandler) {
+        networkManager.request(request: request, completion: completion)
+    }
+    
+    func fetchKlineData(request: RequestModel, completion: @escaping KlineDataResponseHandler) {
         networkManager.request(request: request, completion: completion)
     }
 }
