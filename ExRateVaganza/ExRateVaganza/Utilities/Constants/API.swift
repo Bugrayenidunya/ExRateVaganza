@@ -9,8 +9,7 @@ import Foundation
 
 extension Constant {
     class API {
-        static let ticker = "ticker"
-        static let klineData = "kline-data"
-        static let baseUrl = "https://api.btcturk.com/api/v2/"
+        static let tickerUrl = "https://api.btcturk.com/api/v2/ticker"
+        static let klineDataUrl = "https://graph-api.btcturk.com/v1/klines/history"
     }
 }
