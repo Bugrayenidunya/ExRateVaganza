@@ -56,7 +56,7 @@ class RequestModel {
 // MARK: - Helpers
 private extension RequestModel {
     func generateUrl(with queryItems: [URLQueryItem]) -> URL? {
-        let endpoint = Constant.API.baseUrl.appending(path)
+        let endpoint = path
         var urlComponents = URLComponents(string: endpoint)
         urlComponents?.queryItems = queryItems
         
