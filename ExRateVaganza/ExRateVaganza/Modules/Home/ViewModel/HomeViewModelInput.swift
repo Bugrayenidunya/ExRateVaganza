@@ -14,4 +14,5 @@ protocol HomeViewModelInput {
     func favoriteButtonPressed(with pairName: String)
     func sectionHasItems(_ index: Int) -> Bool
     func title(for section: Int) -> String
+    func didSelectItemAt(at indexPath: IndexPath)
 }

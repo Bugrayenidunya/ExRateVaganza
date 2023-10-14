@@ -21,6 +21,7 @@ final class HomeController: UIViewController {
     
     private enum Constant {
         static let headerKind = "header"
+        static let homeNavigationTitle = "ExRateVaganza"
         static let sectionInset = 2.0
         static let half = 0.5
         static let full = 1.0
@@ -80,7 +81,9 @@ extension HomeController: HomePairCollectionViewCellDelegate {
 
 // MARK: - UICollectionViewDelegate
 extension HomeController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectItemAt(at: indexPath)
+    }
 }
 
 // MARK: - Helpers
@@ -93,7 +96,7 @@ private extension HomeController {
     }
     
     func setupNavigationTitle() {
-        navigationItem.title = "ExRateVaganza"
+        navigationItem.title = Constant.homeNavigationTitle
         
         if let navigationController {
             let textAttributes = [

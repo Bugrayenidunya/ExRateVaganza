@@ -37,12 +37,7 @@ final class HomeViewModel: HomeViewModelInput {
     }
     
     func favoriteButtonPressed(with pairName: String) {
-        guard
-            let index = pairs.firstIndex(where: { $0.pair == pairName })
-        else {
-            return
-        }
-        
+        guard let index = pairs.firstIndex(where: { $0.pair == pairName }) else { return }
         let pair = pairs[index]
         isFavorited(pair) ? removeFromFavorites(pair) : addToFavorites(pair)
     }
@@ -54,10 +49,43 @@ final class HomeViewModel: HomeViewModelInput {
     func title(for section: Int) -> String {
         sections[section].title
     }
+    
+    func didSelectItemAt(at indexPath: IndexPath) {
+        guard let item = getItem(at: indexPath) else { return }
+        let klineDataRequestDTO = createKlineDataRequest(for: item)
+        router.navigateToDetail(klineDataRequestDTO)
+    }
 }
 
 // MARK: - Helpers
 private extension HomeViewModel {
+    func getItem(at indexPath: IndexPath) -> Item? {
+        sections[indexPath.section].items[indexPath.row]
+    }
+
+    func createKlineDataRequest(for item: Item) -> KlineDataRequestDTO {
+        var symbol: String = .empty
+        var pairNormalized: String = .empty
+        
+        switch item {
+        case .favorites(let provider):
+            symbol = provider.pairName
+            pairNormalized = provider.pairNormalized
+            
+        case .pairs(let provider):
+            symbol = provider.pairName
+            pairNormalized = provider.pairNormalized
+        }
+        
+        return KlineDataRequestDTO(
+            from: Int(Date.getOpeningHourTimeInterval),
+            to: Int(Date.getClosingTimeForDate),
+            resolution: 15,
+            symbol: symbol,
+            pairNormalized: pairNormalized
+        )
+    }
+    
     func createSection(with pairs: [Pair]) -> Section {
         var dtos: [HomePairCollectionViewCellProvider] = []
         var items: [Item] = []
