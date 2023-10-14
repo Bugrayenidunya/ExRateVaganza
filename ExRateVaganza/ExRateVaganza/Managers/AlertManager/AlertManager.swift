@@ -28,7 +28,7 @@ final class AlertManager: AlertShowable {
     func showAlert(with error: NetworkError) {
         guard let controller = controller else { return }
         
-        let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: error.description, preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
         }))

@@ -24,7 +24,7 @@ extension NetworkError: CustomStringConvertible {
         case .connectionError:
             return "Please make sure you are connected to the internet and try again."
         case .notFound:
-            return "The media you were looking for was not found. Try looking for something else."
+            return "The data you were looking for was not found. Try looking for something else."
         case .serverError:
             return "There is a problem with the server. Please try again."
         case .timeOut:
