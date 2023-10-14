@@ -15,6 +15,6 @@ class GetAllPairsRequestModel: RequestModel {
     }
     
     override var path: String {
-        Constant.API.ticker
+        Constant.API.tickerUrl
     }
 }
