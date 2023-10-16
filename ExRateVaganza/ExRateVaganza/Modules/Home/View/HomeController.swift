@@ -36,12 +36,12 @@ final class HomeController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let compositionalLayout = generateCompositionalLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: compositionalLayout)
-        collectionView.register(HomeFavoriteCollectionViewCell.self, forCellWithReuseIdentifier: HomeFavoriteCollectionViewCell.identifier)
-        collectionView.register(HomePairCollectionViewCell.self, forCellWithReuseIdentifier: HomePairCollectionViewCell.identifier)
+        collectionView.register(HomeFavoriteCollectionViewCell.self, forCellWithReuseIdentifier: HomeFavoriteCollectionViewCell.description())
+        collectionView.register(HomePairCollectionViewCell.self, forCellWithReuseIdentifier: HomePairCollectionViewCell.description())
         collectionView.register(
             SectionHeaderReusableView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: SectionHeaderReusableView.identifier
+            withReuseIdentifier: SectionHeaderReusableView.description()
         )
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
@@ -68,7 +68,9 @@ final class HomeController: UIViewController {
 // MARK: - HomeViewModelOutput
 extension HomeController: HomeViewModelOutput {
     func home(_ viewModel: HomeViewModelInput, didCreatedSections sections: [Section]) {
-        self.applySnapshot(sections: sections)
+        DispatchQueue.main.async {
+            self.applySnapshot(sections: sections)
+        }
     }
 }
 
@@ -143,12 +145,12 @@ private extension HomeController {
                 
                 switch cellProvider {
                 case .favorites(let provider):
-                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeFavoriteCollectionViewCell.identifier, for: indexPath) as? HomeFavoriteCollectionViewCell else { return nil }
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeFavoriteCollectionViewCell.description(), for: indexPath) as? HomeFavoriteCollectionViewCell else { return nil }
                     cell.configure(with: provider)
                     return cell
                     
                 case .pairs(let provider):
-                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePairCollectionViewCell.identifier, for: indexPath) as? HomePairCollectionViewCell else { return nil }
+                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePairCollectionViewCell.description(), for: indexPath) as? HomePairCollectionViewCell else { return nil }
                     cell.tag = indexPath.row
                     cell.delegate = self
                     cell.configure(with: provider)
@@ -164,16 +166,14 @@ private extension HomeController {
             guard kind == UICollectionView.elementKindSectionHeader else { return .init(frame: .zero) }
             
             if indexPath.section == .zero {
-                let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderReusableView.identifier, for: indexPath) as? SectionHeaderReusableView
-                view?.backgroundColor = .clear
-                view?.titleLabel.text = self.viewModel.title(for: indexPath.section)
-                
+                let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderReusableView.description(), for: indexPath) as! SectionHeaderReusableView
+                view.configure(with: SectionHeaderReusableViewDTO(title: self.viewModel.title(for: indexPath.section)))
+
                 return view
             }
             
-            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderReusableView.identifier, for: indexPath) as? SectionHeaderReusableView
-            view?.backgroundColor = .clear
-            view?.titleLabel.text = self.viewModel.title(for: indexPath.section)
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderReusableView.description(), for: indexPath) as! SectionHeaderReusableView
+            view.configure(with: SectionHeaderReusableViewDTO(title: self.viewModel.title(for: indexPath.section)))
             
             return view
         }

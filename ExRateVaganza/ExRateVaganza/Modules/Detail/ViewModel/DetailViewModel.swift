@@ -11,16 +11,14 @@ final class DetailViewModel: DetailViewModelInput {
     
     // MARK: Properties
     private let loadingManager: Loading
-    private let alertManager: AlertShowable
     private let pairAPI: PairFetchable
     private let klineDataProvider: KlineDataRequestProvider
     
     weak var output: DetailViewModelOutput?
     
     // MARK: Init
-    init(loadingManager: Loading, alertManager: AlertShowable, pairAPI: PairFetchable, klineDataProvider: KlineDataRequestProvider) {
+    init(loadingManager: Loading, pairAPI: PairFetchable, klineDataProvider: KlineDataRequestProvider) {
         self.loadingManager = loadingManager
-        self.alertManager = alertManager
         self.pairAPI = pairAPI
         self.klineDataProvider = klineDataProvider
     }
@@ -61,7 +59,7 @@ private extension DetailViewModel {
                 self.output?.detail(self, didFetchKlineChartData: chartDataSource)
                 
             case .failure(let error):
-                alertManager.showAlert(with: error)
+                self.output?.showAlert(with: error)
             }
         }
     }

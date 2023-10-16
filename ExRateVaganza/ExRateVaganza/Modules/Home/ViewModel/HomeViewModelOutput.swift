@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol HomeViewModelOutput: AnyObject {
+protocol HomeViewModelOutput: AnyObject, AlertShowable {
     func home(_ viewModel: HomeViewModelInput, didCreatedSections sections: [Section])
 }

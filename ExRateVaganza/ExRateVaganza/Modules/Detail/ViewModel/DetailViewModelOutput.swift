@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DetailViewModelOutput: AnyObject {
+protocol DetailViewModelOutput: AnyObject, AlertShowable {
     func detail(_ viewModel: DetailViewModelInput, didFetchKlineChartData provider: KlineChartDataProvider)
     func detail(_ viewModel: DetailViewModelInput, didUpdateNavigationTitle title: String)
 }

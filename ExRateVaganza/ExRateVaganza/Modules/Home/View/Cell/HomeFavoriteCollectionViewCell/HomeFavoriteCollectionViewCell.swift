@@ -10,8 +10,6 @@ import UIKit
 final class HomeFavoriteCollectionViewCell: UICollectionViewCell {
     
     // MARK: Properties
-    static let identifier = "HomeFavoriteCollectionViewCell"
-    
     private let pairNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .vaganzaWhite

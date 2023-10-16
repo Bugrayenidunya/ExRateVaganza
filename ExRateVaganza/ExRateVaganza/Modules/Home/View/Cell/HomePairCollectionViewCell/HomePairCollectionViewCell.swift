@@ -14,8 +14,6 @@ protocol HomePairCollectionViewCellDelegate: AnyObject {
 final class HomePairCollectionViewCell: UICollectionViewCell {
     
     // MARK: Properties
-    static let identifier = "HomePairCollectionViewCell"
-    
     weak var delegate: HomePairCollectionViewCellDelegate?
     
     private let favoriteIconImageView: UIImageView = {

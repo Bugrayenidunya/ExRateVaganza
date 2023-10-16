@@ -12,7 +12,6 @@ final class HomeViewModel: HomeViewModelInput {
     // MARK: Properties
     private let router: HomeRouting
     private let loadingManager: Loading
-    private let alertManager: AlertShowable
     private let pairAPI: PairFetchable
     private let userDefaultsManager: UserDefaultsManagable
     private let requestModel: GetAllPairsRequestModel
@@ -23,10 +22,9 @@ final class HomeViewModel: HomeViewModelInput {
     weak var output: HomeViewModelOutput?
     
     // MARK: Init
-    init(router: HomeRouting, loadingManager: Loading, alertManager: AlertShowable, pairAPI: PairFetchable, userDefaultsManager: UserDefaultsManagable, requestModel: GetAllPairsRequestModel) {
+    init(router: HomeRouting, loadingManager: Loading, pairAPI: PairFetchable, userDefaultsManager: UserDefaultsManagable, requestModel: GetAllPairsRequestModel) {
         self.router = router
         self.loadingManager = loadingManager
-        self.alertManager = alertManager
         self.pairAPI = pairAPI
         self.userDefaultsManager = userDefaultsManager
         self.requestModel = requestModel
@@ -52,11 +50,11 @@ final class HomeViewModel: HomeViewModelInput {
     }
     
     /// Use this function to assign new values and injecting new values while testing
-    internal func updatePairs(_ pairs: [Pair]) {
+    func updatePairs(_ pairs: [Pair]) {
         self.pairs = pairs
     }
     /// Use this function to assign new values and injecting new values while testing
-    internal func updateSections(_ sections: [Section]) {
+    func updateSections(_ sections: [Section]) {
         self.sections = sections
     }
 }
@@ -150,7 +148,7 @@ private extension HomeViewModel {
     func getAllPairs(with request: GetAllPairsRequestModel) {
         loadingManager.show()
         
-        pairAPI.fetchAllPairs(request: request) {[weak self] result in
+        pairAPI.fetchAllPairs(request: request) { [weak self] result in
             guard let self else { return }
             
             self.loadingManager.hide()
@@ -159,12 +157,10 @@ private extension HomeViewModel {
             case .success(let response):
                 updatePairs(response.data)
                 
-                DispatchQueue.main.async {
-                    self.updateSections()
-                }
+                self.updateSections()
                 
             case .failure(let error):
-                self.alertManager.showAlert(with: error)
+                self.output?.showAlert(with: error)
             }
         }
     }
