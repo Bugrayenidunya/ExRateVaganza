@@ -74,8 +74,8 @@ extension HomeController: HomeViewModelOutput {
 
 // MARK: - HomePairCollectionViewCellDelegate
 extension HomeController: HomePairCollectionViewCellDelegate {
-    func home(_ pairCell: HomePairCollectionViewCell, didPressedFavoriteButtonWith provider: HomePairCollectionViewCellProvider) {
-        viewModel.favoriteButtonPressed(with: provider.pairName)
+    func home(_ pairCell: HomePairCollectionViewCell, didPressedFavoriteButtonFor index: Int) {
+        viewModel.favoriteButtonPressed(for: index)
     }
 }
 
@@ -149,6 +149,7 @@ private extension HomeController {
                     
                 case .pairs(let provider):
                     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePairCollectionViewCell.identifier, for: indexPath) as? HomePairCollectionViewCell else { return nil }
+                    cell.tag = indexPath.row
                     cell.delegate = self
                     cell.configure(with: provider)
                     return cell

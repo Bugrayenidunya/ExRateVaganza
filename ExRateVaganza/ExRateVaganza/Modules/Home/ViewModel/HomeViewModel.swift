@@ -36,14 +36,9 @@ final class HomeViewModel: HomeViewModelInput {
         getAllPairs(with: requestModel)
     }
     
-    func favoriteButtonPressed(with pairName: String) {
-        guard let index = pairs.firstIndex(where: { $0.pair == pairName }) else { return }
+    func favoriteButtonPressed(for index: Int) {
         let pair = pairs[index]
         isFavorited(pair) ? removeFromFavorites(pair) : addToFavorites(pair)
-    }
-    
-    func sectionHasItems(_ index: Int) -> Bool {
-        sections[index].items.isEmpty
     }
     
     func title(for section: Int) -> String {

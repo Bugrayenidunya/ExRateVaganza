@@ -8,14 +8,13 @@
 import UIKit
 
 protocol HomePairCollectionViewCellDelegate: AnyObject {
-    func home(_ pairCell: HomePairCollectionViewCell, didPressedFavoriteButtonWith provider: HomePairCollectionViewCellProvider)
+    func home(_ pairCell: HomePairCollectionViewCell, didPressedFavoriteButtonFor index: Int)
 }
 
 final class HomePairCollectionViewCell: UICollectionViewCell {
     
     // MARK: Properties
     static let identifier = "HomePairCollectionViewCell"
-    private var provider: HomePairCollectionViewCellProvider?
     
     weak var delegate: HomePairCollectionViewCellDelegate?
     
@@ -81,8 +80,6 @@ final class HomePairCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with provider: HomePairCollectionViewCellProvider) {
-        self.provider = provider
-        
         pairNameLabel.text = provider.pairNormalized.formattedPairNormalized
         lastPriceLabel.text = provider.last.stringValueWithThreeFloatingPoints
         dailyPercentLabel.text = "%\(provider.dailyPercent.stringValueWithTwoFloatingPoints)"
@@ -101,8 +98,7 @@ private extension HomePairCollectionViewCell {
     
     @objc
     func favoritePressed() {
-        guard let provider else { return }
-        delegate?.home(self, didPressedFavoriteButtonWith: provider)
+        delegate?.home(self, didPressedFavoriteButtonFor: tag)
     }
     
     func setDailyPercentColor(_ dailyPercent: Double) {

@@ -11,8 +11,7 @@ protocol HomeViewModelInput {
     var output: HomeViewModelOutput? { get set }
     
     func viewDidLoad()
-    func favoriteButtonPressed(with pairName: String)
-    func sectionHasItems(_ index: Int) -> Bool
+    func favoriteButtonPressed(for index: Int)
     func title(for section: Int) -> String
     func didSelectItemAt(at indexPath: IndexPath)
 }
