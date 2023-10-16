@@ -18,6 +18,7 @@ final class LoadingManager: Loading {
     
     // MARK: Properties
     static let shared: Loading = LoadingManager.init()
+    private var requestCount: Int = 0
     
     enum Constants {
         static let cornerRadius = 8.0
@@ -52,15 +53,24 @@ extension LoadingManager {
     func show() {
         DispatchQueue.main.async {
             guard let window = UIApplication.shared.keyWindow else { return }
-            self.setupLoadingView(on: window)
+            self.requestCount += 1
+            if self.requestCount == 1 {
+                // Show the loading view only when the first request is initiated.
+                self.setupLoadingView(on: window)
+            }
         }
     }
     
     /// Hide loading view
     func hide() {
         DispatchQueue.main.async {
-            self.loadingView.removeFromSuperview()
-            UIApplication.shared.keyWindow?.isUserInteractionEnabled = true
+            self.requestCount -= 1
+            if self.requestCount <= 0 {
+                // Hide the loading view when the last request has completed.
+                self.loadingView.removeFromSuperview()
+                UIApplication.shared.keyWindow?.isUserInteractionEnabled = true
+                self.requestCount = 0
+            }
         }
     }
     
