@@ -155,7 +155,7 @@ private extension HomeViewModel {
             
             switch result {
             case .success(let response):
-                updatePairs(response.data)
+                self.updatePairs(response.data)
                 
                 self.updateSections()
                 
