@@ -50,6 +50,15 @@ final class HomeViewModel: HomeViewModelInput {
         let klineDataRequestDTO = createKlineDataRequest(for: item)
         router.navigateToDetail(klineDataRequestDTO)
     }
+    
+    /// Use this function to assign new values and injecting new values while testing
+    internal func updatePairs(_ pairs: [Pair]) {
+        self.pairs = pairs
+    }
+    /// Use this function to assign new values and injecting new values while testing
+    internal func updateSections(_ sections: [Section]) {
+        self.sections = sections
+    }
 }
 
 // MARK: - Helpers
@@ -148,7 +157,7 @@ private extension HomeViewModel {
             
             switch result {
             case .success(let response):
-                self.pairs = response.data
+                updatePairs(response.data)
                 
                 DispatchQueue.main.async {
                     self.updateSections()
@@ -187,8 +196,7 @@ private extension HomeViewModel {
         let pairsSection = createSection(with: self.pairs)
         
         sections.removeAll()
-        sections.append(favoritesSection)
-        sections.append(pairsSection)
+        updateSections([favoritesSection, pairsSection])
         
         output?.home(self, didCreatedSections: sections)
     }
