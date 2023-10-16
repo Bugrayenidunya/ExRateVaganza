@@ -46,8 +46,10 @@ private extension DetailViewModel {
             symbol: provider.symbol
         )
         
+        loadingManager.show()
         pairAPI.fetchKlineData(request: request) { [weak self] result in
             guard let self else { return }
+            self.loadingManager.hide()
             
             switch result {
             case .success(let response):
