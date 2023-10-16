@@ -40,7 +40,9 @@ final class DetailController: UIViewController {
 // MARK: - DetailViewModelOutput
 extension DetailController: DetailViewModelOutput {
     func detail(_ viewModel: DetailViewModelInput, didFetchKlineChartData provider: KlineChartDataProvider) {
-        setupChartData(with: provider)
+        DispatchQueue.main.async {
+            self.setupChartData(with: provider)
+        }
     }
     
     func detail(_ viewModel: DetailViewModelInput, didUpdateNavigationTitle title: String) {

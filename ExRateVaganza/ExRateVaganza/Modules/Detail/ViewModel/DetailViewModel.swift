@@ -57,10 +57,8 @@ private extension DetailViewModel {
                     x: response.time.map({ Int($0) }),
                     y: response.close
                 )
-                
-                DispatchQueue.main.async {
-                    self.output?.detail(self, didFetchKlineChartData: chartDataSource)
-                }
+
+                self.output?.detail(self, didFetchKlineChartData: chartDataSource)
                 
             case .failure(let error):
                 alertManager.showAlert(with: error)
