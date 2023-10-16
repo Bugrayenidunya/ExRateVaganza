@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GetKlineDataResponseModel: Codable {
+struct GetKlineDataResponseModel: Codable {
     let close: [Double]
     let time: [TimeInterval]
     
