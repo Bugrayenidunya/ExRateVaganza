@@ -7,6 +7,6 @@
 
 import Foundation
 
-class GetAllPairsResponseModel: ResponseModel<[Pair]> {
+final class GetAllPairsResponseModel: ResponseModel<[Pair]> {
     
 }
