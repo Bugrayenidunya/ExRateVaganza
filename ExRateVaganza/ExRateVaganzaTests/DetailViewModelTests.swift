@@ -13,7 +13,6 @@ final class DetailViewModelTests: XCTestCase {
     // MARK: Properties
     private var viewModel: DetailViewModel!
     private var mockLoadingManager: MockLoadingManager!
-    private var mockAlertManager: MockAlertManager!
     private var mockPairAPI: MockPairAPI!
     private var mockKlineDataRequestProvider: MockKlineDataRequestProvider!
     private var mockGetKlineDataRequestModel: MockGetKlineDataRequestModel!
@@ -21,19 +20,17 @@ final class DetailViewModelTests: XCTestCase {
     
     override func setUpWithError() throws {
         mockLoadingManager = MockLoadingManager()
-        mockAlertManager = MockAlertManager()
         mockPairAPI = MockPairAPI()
         mockKlineDataRequestProvider = generateMockKlineDataRequestProvider()
         mockGetKlineDataRequestModel = .init(from: mockKlineDataRequestProvider.from, to: mockKlineDataRequestProvider.to, resolution: mockKlineDataRequestProvider.resolution, symbol: mockKlineDataRequestProvider.symbol)
         mockOutput = MockDetailViewModelOutput()
         
-        viewModel = DetailViewModel(loadingManager: mockLoadingManager, alertManager: mockAlertManager, pairAPI: mockPairAPI, klineDataProvider: mockKlineDataRequestProvider)
+        viewModel = DetailViewModel(loadingManager: mockLoadingManager, pairAPI: mockPairAPI, klineDataProvider: mockKlineDataRequestProvider)
         viewModel.output = mockOutput
     }
     
     override func tearDownWithError() throws {
         mockLoadingManager = nil
-        mockAlertManager = nil
         mockPairAPI = nil
         mockKlineDataRequestProvider = nil
         mockGetKlineDataRequestModel = nil

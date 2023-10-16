@@ -13,7 +13,6 @@ final class HomeViewModelTests: XCTestCase {
     // MARK: Properties
     private var viewModel: HomeViewModel!
     private var mockLoadingManager: MockLoadingManager!
-    private var mockAlertManager: MockAlertManager!
     private var mockUserDefaultsManager: MockUserDefaultsManager!
     private var mockNetworkManager: MockNetworkManager!
     private var mockRouter: MockHomeRouting!
@@ -25,7 +24,6 @@ final class HomeViewModelTests: XCTestCase {
         super.setUp()
         
         mockLoadingManager = MockLoadingManager()
-        mockAlertManager = MockAlertManager()
         mockUserDefaultsManager = MockUserDefaultsManager()
         mockNetworkManager = MockNetworkManager()
         mockRouter = MockHomeRouting()
@@ -36,7 +34,6 @@ final class HomeViewModelTests: XCTestCase {
         viewModel = HomeViewModel(
             router: mockRouter,
             loadingManager: mockLoadingManager,
-            alertManager: mockAlertManager,
             pairAPI: mockPairAPI,
             userDefaultsManager: mockUserDefaultsManager,
             requestModel: mockRequestModel
@@ -48,7 +45,6 @@ final class HomeViewModelTests: XCTestCase {
     override func tearDownWithError() throws {
         viewModel = nil
         mockLoadingManager = nil
-        mockAlertManager = nil
         mockUserDefaultsManager = nil
         mockNetworkManager = nil
         mockRouter = nil
